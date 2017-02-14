@@ -67,3 +67,82 @@ $names[] = 'josh';
 var_dump($names);
 
 echo $names[3];
+
+echo '<br>';
+
+// Arrays cont.
+$people = [
+  'alex' => 26,
+  'billy' => 21
+];
+
+echo $people['alex'];
+
+$users = [
+  [
+    'username' => 'alex',
+    'email' => 'alex@codecourse.com',
+    'likes' => ['cats', 'food']
+  ],
+  [
+    'username' => 'billy',
+    'email' => 'billy@codecourse.com',
+    'likes' => ['books', 'cats']
+  ]
+];
+var_dump($users);
+
+echo $users[1]['email'] . '<br>';
+
+echo $users[0]['likes'][0] . '<br>';
+
+foreach ($users as $user) {
+  echo $user['username'] . '<br>';
+}
+
+$users[] = [
+  'username' => 'josh',
+  'email' => 'josh@codecourse.com',
+  'likes' => ['reading', 'cooking']
+];
+
+$users[1]['likes'][1] = 'dogs';
+
+$users[1]['about'] = 'I am learning to code.';
+
+var_dump($users);
+
+//NULL
+
+$name1 = 'alex';
+
+$name1 = null;
+
+var_dump($name1);
+
+$name2 = 'billy';
+
+unset($name2); // Set the value to NULL.
+
+// Concatenation
+$weather = 'sunny';
+
+$degrees = 30.5;
+
+$status = 'The current weather is ' . $weather . ' and it\'s ' . $degrees . ' degrees';
+
+echo $status;
+
+var_dump($status);
+  // Variable parsing.
+$status2 = "The current weather is $weather and it's $degrees degrees";
+
+echo $status2 . '<br>';
+
+$status3 = "The current weather is {$weather} and it's {$degrees}° degrees";
+
+echo $status3 . '<br>';
+
+echo 'My name is ', $name . '<br>';
+$text2 = 'My name is ' . $name;
+echo $text2;
