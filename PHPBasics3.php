@@ -98,3 +98,113 @@ echo "You rolled a {$numberIWant}!" . '<br>';
 do {
   echo 'This will be run at least once.' . '<br>';
 } while (false);
+
+// The FOR EACH loop
+$names2 = ['alex', 'billy', 'dale'];
+
+foreach ($names2 as $index => $name) {
+  echo $index . ':' . $name . '<br>';
+}
+
+$topics = [
+  [
+    'id' => 1,
+    'title' => 'The best way to learn PHP?',
+    'posts' => [
+      ['body' => 'Practice a lot!'],
+      ['body' => 'Work on a project.']
+    ]
+  ],
+  [
+    'id' => 2,
+    'title' => 'How do I use a foreach loop?',
+    'posts' => [
+      ['body' => 'Just watch this part.']
+    ]
+  ]
+];
+
+foreach ($topics as $topic) {
+  echo '<h1>' . $topic['title'] . '</h1>';
+  foreach ($topic['posts'] as $post) {
+    echo '<p>' . $post['body'] . '</p>';
+  }
+}
+
+// Breaking & continuing
+$names3 = ['alex', 'billy', 'dale'];
+
+foreach ($names3 as $name) {
+  echo $name . '<br>';
+  break;
+}
+
+$users = [
+  ['username' => 'alex'],
+  ['username' => 'billy'],
+  ['username' => 'dale'],
+  ['username' => 'ashley'],
+  ['username' => 'mabel'],
+  ['username' => 'josh']
+];
+
+$toFind = 'dale';
+$result = null;
+
+foreach ($users as $user) {
+  if ($user['username'] === $toFind) {
+    $result = $user;
+    break;
+  }
+}
+
+var_dump($result);
+
+$toSkip = 'billy';
+
+foreach ($users as $user) {
+  if ($user['username'] === $toSkip) {
+    continue;
+  }
+
+  echo $user['username'] . '<br>';
+}
+
+$users2 = [
+  [
+    'username' => 'alex',
+    'likes' => ['cats', 'food']
+  ],
+  [
+    'username' => 'billy',
+    'likes' => ['code', 'cats', 'food']
+  ],
+  [
+    'username' => 'dale',
+    'likes' => ['code', 'cats', 'music']
+  ],
+];
+
+$toFind = 'code';
+$found = null;
+
+foreach ($users2 as $user) {
+  foreach ($user['likes'] as $like) {
+    if ($like === $toFind) {
+      $found = $user;
+      break 2;
+    }
+  }
+}
+
+var_dump($found);
+
+// Dumping
+$users3 = [
+  ['name' => 'alex', 'age' => 27],
+  ['name' => 'billy', 'age' => 23]
+];
+
+var_dump($users3);
+
+echo '<pre>', print_r($users3), '</pre>';
