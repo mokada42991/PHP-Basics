@@ -1,0 +1,25 @@
+<?php
+
+function directoryReader ($directory, array $excludeFiles = ['.', '..']) {
+    $files = [];
+
+    if (!is_dir($directory)) {
+        return null;
+    }
+
+    if (!($filesDirectory = opendir($directory))) {
+        return null;
+    }
+
+    while (($file = readdir($filesDirectory)) !== false) {
+        if (in_array($file, $excludeFiles)) {
+            continue;
+        }
+
+        $files[] = $directory . '/' . $file;
+    }
+
+    closedir($filesDirectory);
+
+    return $files;
+}
